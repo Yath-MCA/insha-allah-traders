@@ -25,7 +25,7 @@ export const HOME_CAROUSEL_SLIDES: HomeCarouselSlide[] = [
     caption: 'Stampings and components for OEM and Tier programmes',
   },
   {
-    src: '/website/HYDRAULIC.png',
+    src: '/website/PROD_PEOPLE_QC.png',
     alt: 'Welded sheet metal assembly',
     caption: 'Assemblies and finishing — welded, riveted, and coated work',
   },
