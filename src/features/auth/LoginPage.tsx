@@ -30,9 +30,10 @@ export function LoginPage() {
   const { session, loading } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const requested =
+    (location.state as { from?: { pathname?: string } } | null)?.from?.pathname
   const from =
-    (location.state as { from?: { pathname?: string } } | null)?.from
-      ?.pathname ?? '/'
+    requested && requested.startsWith('/app') ? requested : '/app'
   const [submitting, setSubmitting] = useState(false)
 
   const form = useForm<FormValues>({
@@ -71,6 +72,12 @@ export function LoginPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             Sheet-metal manufacturing operations
           </p>
+          <Link
+            to="/"
+            className="mt-3 inline-block text-sm text-muted-foreground underline-offset-4 hover:underline"
+          >
+            ← Back to company website
+          </Link>
         </div>
 
         <Card>

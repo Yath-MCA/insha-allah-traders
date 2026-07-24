@@ -46,7 +46,7 @@ export function ResetPasswordPage() {
       })
       if (error) throw error
       toast.success('Password updated')
-      navigate('/', { replace: true })
+      navigate('/app', { replace: true })
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Reset failed')
     } finally {

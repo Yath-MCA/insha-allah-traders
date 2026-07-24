@@ -48,7 +48,7 @@ export function AppShell() {
     <SidebarProvider>
       <Sidebar collapsible="icon" className="border-r border-sidebar-border">
         <SidebarHeader className="gap-2 px-3 py-4">
-          <Link to="/" className="flex flex-col gap-0.5 px-1 group-data-[collapsible=icon]:hidden">
+          <Link to="/app" className="flex flex-col gap-0.5 px-1 group-data-[collapsible=icon]:hidden">
             <span className="text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               ERP
             </span>
@@ -83,7 +83,7 @@ export function AppShell() {
                         <SidebarMenuButton asChild tooltip={item.title}>
                           <NavLink
                             to={item.href}
-                            end={item.href === '/'}
+                            end={item.href === '/app'}
                             className={({ isActive }) =>
                               cn(isActive && 'bg-sidebar-accent text-sidebar-accent-foreground')
                             }
@@ -141,10 +141,10 @@ export function AppShell() {
                 {profile?.full_name || user?.email}
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate('/profile')}>
+              <DropdownMenuItem onClick={() => navigate('/app/profile')}>
                 Profile
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate('/settings/company')}>
+              <DropdownMenuItem onClick={() => navigate('/app/settings/company')}>
                 Company settings
               </DropdownMenuItem>
               <DropdownMenuSeparator />

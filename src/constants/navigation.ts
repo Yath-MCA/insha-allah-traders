@@ -30,71 +30,71 @@ export type NavGroup = {
   items: NavItem[]
 }
 
-/** Full IA — Phase 1 routes work; later phases show Coming Soon. */
+/** Full IA under /app — Phase 1 routes work; later phases show Coming Soon. */
 export const NAV_GROUPS: NavGroup[] = [
   {
     label: 'Overview',
     items: [
-      { title: 'Dashboard', href: '/', icon: LayoutDashboard, phase: 1 },
+      { title: 'Dashboard', href: '/app', icon: LayoutDashboard, phase: 1 },
     ],
   },
   {
     label: 'Masters',
     items: [
-      { title: 'Customers', href: '/customers', icon: Users, phase: 2 },
-      { title: 'Vendors', href: '/vendors', icon: Users, phase: 2 },
-      { title: 'Products', href: '/products', icon: Package, phase: 2 },
-      { title: 'GST rates', href: '/gst-rates', icon: FileText, phase: 2 },
+      { title: 'Customers', href: '/app/customers', icon: Users, phase: 2 },
+      { title: 'Vendors', href: '/app/vendors', icon: Users, phase: 2 },
+      { title: 'Products', href: '/app/products', icon: Package, phase: 2 },
+      { title: 'GST rates', href: '/app/gst-rates', icon: FileText, phase: 2 },
     ],
   },
   {
     label: 'Sales',
     items: [
-      { title: 'Quotations', href: '/sales/quotations', icon: FileText, phase: 3 },
-      { title: 'Sales orders', href: '/sales/orders', icon: ShoppingCart, phase: 3 },
-      { title: 'Delivery challans', href: '/sales/delivery-challans', icon: ClipboardList, phase: 3 },
-      { title: 'Invoices', href: '/sales/invoices', icon: FileText, phase: 3 },
-      { title: 'Payments received', href: '/sales/payments', icon: FileText, phase: 3 },
+      { title: 'Quotations', href: '/app/sales/quotations', icon: FileText, phase: 3 },
+      { title: 'Sales orders', href: '/app/sales/orders', icon: ShoppingCart, phase: 3 },
+      { title: 'Delivery challans', href: '/app/sales/delivery-challans', icon: ClipboardList, phase: 3 },
+      { title: 'Invoices', href: '/app/sales/invoices', icon: FileText, phase: 3 },
+      { title: 'Payments received', href: '/app/sales/payments', icon: FileText, phase: 3 },
     ],
   },
   {
     label: 'Purchase',
     items: [
-      { title: 'Purchase orders', href: '/purchase/orders', icon: ShoppingCart, phase: 4 },
-      { title: 'Goods receipts', href: '/purchase/grn', icon: ClipboardList, phase: 4 },
-      { title: 'Purchase invoices', href: '/purchase/invoices', icon: FileText, phase: 4 },
-      { title: 'Expenses', href: '/purchase/expenses', icon: FileText, phase: 4 },
-      { title: 'Vendor payments', href: '/purchase/payments', icon: FileText, phase: 4 },
+      { title: 'Purchase orders', href: '/app/purchase/orders', icon: ShoppingCart, phase: 4 },
+      { title: 'Goods receipts', href: '/app/purchase/grn', icon: ClipboardList, phase: 4 },
+      { title: 'Purchase invoices', href: '/app/purchase/invoices', icon: FileText, phase: 4 },
+      { title: 'Expenses', href: '/app/purchase/expenses', icon: FileText, phase: 4 },
+      { title: 'Vendor payments', href: '/app/purchase/payments', icon: FileText, phase: 4 },
     ],
   },
   {
     label: 'Inventory',
     items: [
-      { title: 'Stock ledger', href: '/inventory', icon: Warehouse, phase: 5 },
-      { title: 'Warehouses', href: '/inventory/warehouses', icon: Warehouse, phase: 5 },
+      { title: 'Stock ledger', href: '/app/inventory', icon: Warehouse, phase: 5 },
+      { title: 'Warehouses', href: '/app/inventory/warehouses', icon: Warehouse, phase: 5 },
     ],
   },
   {
     label: 'Manufacturing',
     items: [
-      { title: 'BOM & routes', href: '/manufacturing/bom', icon: Factory, phase: 6 },
-      { title: 'Work orders', href: '/manufacturing/work-orders', icon: Hammer, phase: 6 },
+      { title: 'BOM & routes', href: '/app/manufacturing/bom', icon: Factory, phase: 6 },
+      { title: 'Work orders', href: '/app/manufacturing/work-orders', icon: Hammer, phase: 6 },
     ],
   },
   {
     label: 'Quality & tooling',
     items: [
-      { title: 'Tooling', href: '/tooling', icon: Wrench, phase: 7 },
-      { title: 'Quality / NCR', href: '/quality', icon: Shield, phase: 7 },
+      { title: 'Tooling', href: '/app/tooling', icon: Wrench, phase: 7 },
+      { title: 'Quality / NCR', href: '/app/quality', icon: Shield, phase: 7 },
     ],
   },
   {
     label: 'Reports',
     items: [
-      { title: 'Reports', href: '/reports', icon: BarChart3, phase: 8 },
+      { title: 'Reports', href: '/app/reports', icon: BarChart3, phase: 8 },
       {
         title: 'Audit logs',
-        href: '/audit-logs',
+        href: '/app/audit-logs',
         icon: ClipboardList,
         phase: 1,
         permission: { resource: 'audit_logs', action: 'read' },
@@ -106,33 +106,33 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       {
         title: 'Company',
-        href: '/settings/company',
+        href: '/app/settings/company',
         icon: Settings,
         phase: 1,
         permission: { resource: 'companies', action: 'read' },
       },
       {
         title: 'Partners',
-        href: '/settings/partners',
+        href: '/app/settings/partners',
         icon: Users,
         phase: 1,
         permission: { resource: 'partners', action: 'read' },
       },
       {
         title: 'Users & roles',
-        href: '/settings/users',
+        href: '/app/settings/users',
         icon: Users,
         phase: 1,
         permission: { resource: 'users', action: 'read' },
       },
       {
         title: 'Financial year',
-        href: '/settings/financial-year',
+        href: '/app/settings/financial-year',
         icon: FileText,
         phase: 1,
         permission: { resource: 'financial_years', action: 'read' },
       },
-      { title: 'Profile', href: '/profile', icon: Users, phase: 1 },
+      { title: 'Profile', href: '/app/profile', icon: Users, phase: 1 },
     ],
   },
 ]

@@ -69,7 +69,7 @@ export function FinancialYearPage() {
         title="Financial year"
         description="Indian FY runs 1 Apr – 31 Mar (Asia/Kolkata)."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Settings' },
           { label: 'Financial year' },
         ]}

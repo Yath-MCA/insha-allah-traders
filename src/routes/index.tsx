@@ -15,8 +15,15 @@ import {
   PartnersPage,
   UsersPage,
 } from '@/features/company'
-import { HomePage } from '@/features/dashboard/HomePage'
+import { HomePage as DashboardPage } from '@/features/dashboard/HomePage'
 import { AuditLogsPage } from '@/features/audit/AuditLogsPage'
+import {
+  AboutPage,
+  CapabilitiesPage,
+  ContactPage,
+  HomePage as WebsiteHomePage,
+  WebsiteLayout,
+} from '@/features/website'
 
 function Soon({ title, phase }: { title: string; phase: number }) {
   return <ComingSoonPage title={title} phase={phase} />
@@ -26,13 +33,23 @@ export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public company website */}
+        <Route element={<WebsiteLayout />}>
+          <Route index element={<WebsiteHomePage />} />
+          <Route path="capabilities" element={<CapabilitiesPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
+
+        {/* ERP auth entry (outside /app shell) */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-        <Route element={<RequireAuth />}>
+        {/* Authenticated ERP */}
+        <Route path="/app" element={<RequireAuth />}>
           <Route element={<AppShell />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<DashboardPage />} />
             <Route path="profile" element={<ProfilePage />} />
 
             <Route
@@ -143,7 +160,7 @@ export function AppRoutes() {
             <Route path="quality" element={<Soon title="Quality / NCR" phase={7} />} />
             <Route path="reports" element={<Soon title="Reports" phase={8} />} />
 
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/app" replace />} />
           </Route>
         </Route>
       </Routes>

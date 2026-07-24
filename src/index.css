@@ -129,3 +129,46 @@
     @apply font-sans;
   }
 }
+
+/* Public website — intentional motion (hero reveal, capability scroll, CTA hover via Tailwind) */
+@keyframes website-hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes website-section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.website-hero-reveal {
+  animation: website-hero-reveal 0.85s ease-out both;
+}
+
+.website-section-reveal {
+  animation: website-section-reveal 0.65s ease-out both;
+}
+
+.website-capability-block {
+  animation: website-section-reveal 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .website-hero-reveal,
+  .website-section-reveal,
+  .website-capability-block {
+    animation: none;
+  }
+}

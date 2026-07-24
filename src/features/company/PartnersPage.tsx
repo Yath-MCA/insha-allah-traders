@@ -59,7 +59,7 @@ export function PartnersPage() {
         title="Partners"
         description="Firm partners / owners. Full Aadhaar is not stored (no Aadhaar column in schema)."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Settings' },
           { label: 'Partners' },
         ]}

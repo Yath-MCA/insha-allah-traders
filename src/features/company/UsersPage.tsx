@@ -103,7 +103,7 @@ export function UsersPage() {
         title="Users & roles"
         description="List company members and assign roles (admin / super_admin)."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Settings' },
           { label: 'Users' },
         ]}

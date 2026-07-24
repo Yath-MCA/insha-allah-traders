@@ -58,7 +58,7 @@ export function ProfilePage() {
         title="Profile"
         description="Your account details for this ERP."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Profile' },
         ]}
       />

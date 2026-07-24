@@ -39,7 +39,7 @@ export function AuditLogsPage() {
         title="Audit logs"
         description="Read-only trail written by database triggers on master and financial tables."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Audit logs' },
         ]}
       />

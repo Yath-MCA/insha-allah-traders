@@ -98,7 +98,7 @@ export function HomePage() {
         <CardContent className="flex flex-wrap gap-2">
           {hasPermission('companies', 'read') ? (
             <Button asChild variant="outline">
-              <Link to="/settings/company">
+              <Link to="/app/settings/company">
                 <Settings />
                 Company settings
               </Link>
@@ -106,26 +106,26 @@ export function HomePage() {
           ) : null}
           {hasPermission('partners', 'read') ? (
             <Button asChild variant="outline">
-              <Link to="/settings/partners">Partners</Link>
+              <Link to="/app/settings/partners">Partners</Link>
             </Button>
           ) : null}
           {hasPermission('users', 'read') ? (
             <Button asChild variant="outline">
-              <Link to="/settings/users">Users & roles</Link>
+              <Link to="/app/settings/users">Users & roles</Link>
             </Button>
           ) : null}
           {hasPermission('financial_years', 'read') ? (
             <Button asChild variant="outline">
-              <Link to="/settings/financial-year">Financial year</Link>
+              <Link to="/app/settings/financial-year">Financial year</Link>
             </Button>
           ) : null}
           {hasPermission('audit_logs', 'read') ? (
             <Button asChild variant="outline">
-              <Link to="/audit-logs">Audit logs</Link>
+              <Link to="/app/audit-logs">Audit logs</Link>
             </Button>
           ) : null}
           <Button asChild variant="ghost">
-            <Link to="/profile">Profile</Link>
+            <Link to="/app/profile">Profile</Link>
           </Button>
         </CardContent>
       </Card>

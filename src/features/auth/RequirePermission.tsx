@@ -29,7 +29,7 @@ export function RequirePermission({
   }
 
   if (!hasPermission(resource, action)) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/app" replace />
   }
 
   return children

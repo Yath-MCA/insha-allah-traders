@@ -2,7 +2,7 @@
 
 Ready-to-paste Cursor/agent briefs for building the ERP **after Phase 1**.
 
-Phase 1 (foundation: schema, RLS, auth, company settings, app shell) is already in the repo. The **full PostgreSQL schema** lives under [`supabase/migrations/`](../../supabase/migrations/). Prefer **UI + services + hooks**; only add a migration when a real schema gap appears.
+Phase 1 (foundation: schema, RLS, auth, company settings, app shell) is already in the repo. The public company website lives at `/`; ERP UI is under `/app` (entry via `/login`). The **full PostgreSQL schema** lives under [`supabase/migrations/`](../../supabase/migrations/). Prefer **UI + services + hooks**; only add a migration when a real schema gap appears.
 
 ## How to use
 

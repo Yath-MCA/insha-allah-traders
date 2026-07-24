@@ -49,3 +49,7 @@ coverage
 
 # OS
 Thumbs.db
+
+# Cursor local
+.cursor/
+

@@ -1,6 +1,6 @@
-# Insha Allah Traders ERP
+# Insha Allah Traders
 
-Multi-tenant React + Supabase ERP for **Insha Allah Traders** (Tamil Nadu sheet-metal manufacturing). Phase 1 delivers foundation: full database schema/RLS, auth + RBAC, company settings shell, and a compiling app.
+Public company website plus multi-tenant React + Supabase ERP for **Insha Allah Traders** (Tamil Nadu sheet-metal manufacturing). Visitors use `/` for the manufacturing profile; staff enter the ERP only via `/login` → `/app`. Phase 1 delivers foundation: full database schema/RLS, auth + RBAC, company settings shell, and a compiling app.
 
 This product assists bookkeeping and GST-aware invoicing. **It is not a substitute for a Chartered Accountant or tax professional.** GST rates are admin-configurable; there is **no GST filing API**.
 
@@ -129,7 +129,7 @@ SET default_company_id = 'a0000000-0000-4000-8000-000000000001'
 WHERE id = 'USER_UUID';
 ```
 
-Then sign in at `/login`. Additional users: create in Auth, then **Settings → Users & roles** (paste UUID + assign role).
+Then sign in at `/login` (lands on `/app`). Additional users: create in Auth, then **Settings → Users & roles** (paste UUID + assign role).
 
 ## Development phases
 
@@ -139,19 +139,40 @@ Phase 1 (foundation) is implemented in this repo. **Phases 2–9** are build bri
 
 Use them in order; each prompt lists tables, routes, components, RBAC, and acceptance criteria. Prefer UI/services on the existing schema; avoid rewriting migrations unless a real gap appears.
 
-## Phase 1 routes
+## Routes
+
+### Public company website (no login)
 
 | Route | Notes |
 |-------|--------|
-| `/login`, `/forgot-password`, `/reset-password` | Supabase Auth |
-| `/` | Dashboard placeholder |
-| `/profile` | User profile |
-| `/settings/company` | Company master, banks, logo/signature |
-| `/settings/partners` | Partner CRUD |
-| `/settings/users` | List members, assign roles |
-| `/settings/financial-year` | Apr–Mar FY list / select current |
-| `/audit-logs` | Permission-gated read-only list |
-| Other nav items | Coming Soon (Phase N) stubs — see [docs/phase-prompts](./docs/phase-prompts/) |
+| `/` | Brand-first home — manufacturing hero, enquire + Staff Login CTAs |
+| `/capabilities` | Full 16-item manufacturing catalogue (grouped) |
+| `/about` | Partnership firm, Tamil Nadu industrial context |
+| `/contact` | Phone / email / address (optional `VITE_PUBLIC_*` env overrides) |
+
+Staff Login in the public header goes to `/login`.
+
+### ERP auth entry
+
+| Route | Notes |
+|-------|--------|
+| `/login` | Supabase Auth — post-login → `/app` (or deep link under `/app/*`) |
+| `/forgot-password`, `/reset-password` | Password reset flow |
+
+Unauthenticated `/app/*` redirects to `/login`. Authenticated `/login` redirects to `/app`.
+
+### ERP (authenticated, under `/app`)
+
+| Route | Notes |
+|-------|--------|
+| `/app` | Dashboard placeholder |
+| `/app/profile` | User profile |
+| `/app/settings/company` | Company master, banks, logo/signature |
+| `/app/settings/partners` | Partner CRUD |
+| `/app/settings/users` | List members, assign roles |
+| `/app/settings/financial-year` | Apr–Mar FY list / select current |
+| `/app/audit-logs` | Permission-gated read-only list |
+| Other `/app/...` nav items | Coming Soon (Phase N) stubs — see [docs/phase-prompts](./docs/phase-prompts/) |
 
 ## Backup notes
 
@@ -170,9 +191,9 @@ pg_dump "$DATABASE_URL" --format=custom --file=iat-$(date +%Y%m%d).dump
 ```
 src/
   components/     # ui, layout, shared
-  features/       # auth, company, dashboard, audit
+  features/       # website, auth, company, dashboard, audit
   services/       # Supabase data access
-  constants/      # permissions, navigation
+  constants/      # permissions, navigation (ERP hrefs under /app)
   lib/            # supabase client, formatters
 docs/
   phase-prompts/  # Phase 2–9 agent prompts

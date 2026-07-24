@@ -183,7 +183,7 @@ export function CompanySettingsPage() {
         title="Company settings"
         description="Legal identity, GST details, invoice defaults, and bank accounts."
         crumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/app' },
           { label: 'Settings' },
           { label: 'Company' },
         ]}

@@ -36,7 +36,7 @@ export function ComingSoonPage({
           Coming in Phase {phase}
         </p>
         <Button asChild variant="outline">
-          <Link to="/">Back to dashboard</Link>
+          <Link to="/app">Back to dashboard</Link>
         </Button>
       </CardContent>
     </Card>
