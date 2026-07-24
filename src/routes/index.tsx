@@ -29,9 +29,11 @@ function Soon({ title, phase }: { title: string; phase: number }) {
   return <ComingSoonPage title={title} phase={phase} />
 }
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined
+
 export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <Routes>
         {/* Public company website */}
         <Route element={<WebsiteLayout />}>

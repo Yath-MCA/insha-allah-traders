@@ -106,7 +106,29 @@ Build check:
 npm run build
 ```
 
-## 7. First user + Super Admin bootstrap
+## 7. GitHub Pages
+
+The public site (and ERP UI) deploy to **GitHub Pages** from `dist/` via Actions — not from the branch source tree.
+
+**Live URL:** [https://Yath-MCA.github.io/insha-allah-traders/](https://Yath-MCA.github.io/insha-allah-traders/)
+
+### One-time repo setup
+
+1. **Settings → Pages → Build and deployment → Source:** **GitHub Actions** (not “Deploy from a branch”).
+2. **Settings → Secrets and variables → Actions** — add:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+3. **Supabase → Authentication → URL configuration** — add redirect URLs for the Pages origin, for example:
+   - Site URL (or additional): `https://Yath-MCA.github.io/insha-allah-traders`
+   - Redirect URLs:
+     - `https://Yath-MCA.github.io/insha-allah-traders/**`
+     - `https://Yath-MCA.github.io/insha-allah-traders/reset-password`
+
+Vite `base` and React Router `basename` are set to `/insha-allah-traders/`. Pushing to `main` runs [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) (build + `404.html` SPA fallback + deploy). You can also run the workflow manually (**Actions → Deploy GitHub Pages → Run workflow**).
+
+`/app` login on the live site needs the secrets above and matching Auth redirect URLs; without them the UI may load but Supabase auth will fail.
+
+## 8. First user + Super Admin bootstrap
 
 Seed creates company, roles, permissions, warehouses, UOMs, etc. It does **not** create an Auth user.
 
