@@ -12,25 +12,25 @@ export type HomeImageCard = {
   label: string
 }
 
-/** Facility / capability / trust slides — replace JPGs in public/website/ without code changes. */
+/** Facility / capability / trust slides — replace PNGs in public/website/ (same filenames) without code changes. */
 export const HOME_CAROUSEL_SLIDES: HomeCarouselSlide[] = [
   {
-    src: '/website/carousel-01.jpg',
+    src: '/website/THREE_MACHINE_RWO.png',
     alt: 'Press bay and facility floor',
     caption: 'Facility and press bay — production capacity for industrial schedules',
   },
   {
-    src: '/website/carousel-02.jpg',
+    src: '/website/CLOSE_OUTPUT_MACHINE.png',
     alt: 'Sheet metal stampings and pressed components',
     caption: 'Stampings and components for OEM and Tier programmes',
   },
   {
-    src: '/website/carousel-03.jpg',
+    src: '/website/HYDRAULIC.png',
     alt: 'Welded sheet metal assembly',
     caption: 'Assemblies and finishing — welded, riveted, and coated work',
   },
   {
-    src: '/website/carousel-04.jpg',
+    src: '/website/PNUMETIC_MACHINE.png',
     alt: 'Tool room with press die',
     caption: 'Partnership firm · Tamil Nadu manufacturing for OEM and Tier supply',
   },
@@ -38,7 +38,7 @@ export const HOME_CAROUSEL_SLIDES: HomeCarouselSlide[] = [
 
 export const HOME_IMAGE_CARDS: HomeImageCard[] = [
   {
-    src: '/website/card-stampings.jpg',
+    src: '/website/PROD_PEOPLE_QC.png',
     title: 'Stampings and components',
     description:
       'Sheet metal stampings, pressed parts, and fabricated components.',
@@ -46,14 +46,14 @@ export const HOME_IMAGE_CARDS: HomeImageCard[] = [
     label: 'Stampings and components',
   },
   {
-    src: '/website/card-assemblies.jpg',
+    src: '/website/SHORT_OUTPUT_MACHINE.png',
     title: 'Assemblies and finishing',
     description: 'Welded and riveted assemblies with coated components.',
     href: '/capabilities#assemblies',
     label: 'Assemblies and finishing',
   },
   {
-    src: '/website/card-tooling.jpg',
+    src: '/website/THREE_MACHINE_RWO.png',
     title: 'Tooling and development',
     description: 'Press tools, dies, jigs, fixtures, and tool design.',
     href: '/capabilities#tooling',

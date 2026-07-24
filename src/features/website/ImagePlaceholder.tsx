@@ -32,16 +32,27 @@ function PlaceholderPanel({
   )
 }
 
-function resolveCandidates(src: string): string[] {
-  if (src.endsWith('.jpg')) {
-    return [src, src.replace(/\.jpg$/i, '.svg')]
-  }
-  return [src]
+/** Prefix with Vite `base` so GitHub Pages (and local with base) resolve public assets. */
+function withBase(src: string) {
+  if (/^https?:\/\//i.test(src)) return src
+  return `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`
 }
 
 /**
- * Prefers `/website/*.jpg` when present; falls back to matching `.svg`
- * placeholders, then a CSS metal panel.
+ * Prefer the given raster (png/jpg), then a sibling .svg placeholder under public/.
+ */
+function resolveCandidates(src: string): string[] {
+  const rooted = withBase(src)
+  if (/\.(png|jpe?g)$/i.test(src)) {
+    const svgSibling = withBase(src.replace(/\.(png|jpe?g)$/i, '.svg'))
+    return rooted === svgSibling ? [rooted] : [rooted, svgSibling]
+  }
+  return [rooted]
+}
+
+/**
+ * Loads public website images with BASE_URL. Falls back to matching `.svg`,
+ * then a CSS metal panel.
  */
 export function ImagePlaceholder({
   src,
